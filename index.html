@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <link rel="stylesheet"  href="style.css">
+    </head>
+    <body>
+    <div>
+       
+     
+    <h1>my super calc</h1>
+    <div class="content flex-col">
+
+        <div class="3-boxes border-pink flex">
+
+            <div class="inputs flex-col">
+                <input type=text class="border-pink" id="n1">
+                <input type=text class="border-pink" id="n2">
+            </div>
+            
+            <div class="flex-col calc-buttons">
+                <div class="flex"> 
+                    <button>+</button>
+                    <button>-</button>
+                </div>
+         
+            <div class="flex"> 
+                    <button>*</button>
+                    <button>/</button>
+                </div>
+               </div>
+            <div class="results flex-col">
+                res
+            </div>
+
+        </div>
+
+        <div class="border-pink table-wrapper table">table</div>
+
+    </div>
+       <script>
+       let  btnz=document.querySelectorAll('.calc-buttons button')
+     
+       let aritmeticFn =e =>{   // הגדרת פונקציה שמקבלת פרמטר ארוע
+        console.log("aaa")
+           let aritmetic=e.target.textContent;
+           let n1=parseInt(document.querySelector("#n1").value);
+           let n2=parseInt(document.querySelector("#n2").value);
+           let setRes = r => document.querySelector(".results").innerHTML=r  ;
+           switch(aritmetic){
+               case '+':setRes(n1+n2); break;
+               case '-':setRes(n1-n2); break;
+               case '*':setRes(n1*n2); break;
+               case '/':setRes(n1/n2); break;
+           }
+           let ex=n1+aritmetic+n2;
+           let row=`<div class="row"><span> ${ex}</span>
+                <button onclick="edit(event)"> edit </button> 
+                <button> delete </button>
+            </div> `
+            let t=document.querySelector(".table");
+            t.innerHTML+=row;
+       } 
+       function edit(e){
+           let r=e.tatget.parentNode;
+           console.log('edit',e.target,r);
+           let s=r.querySelector('span');
+           let ex=s.textContent;
+           s.innerHTML=`<input value="${ex}"/>`
+       }
+       btnz.forEach(
+           btn => btn.onclick=aritmeticFn    )
+      
+       </script>>
+    </body>
+</html>

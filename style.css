@@ -1,0 +1,27 @@
+body{width:80%; margin:50px auto;}
+.flex
+    {display: flex;
+     justify-content: space-evenly; }
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.inputs > input{
+    margin: 5px 0;
+    width: 50px;
+}
+
+.border-pink {
+    border: 1px solid pink;
+    margin: 15px;
+}
+.calc-buttonz button{
+    width: 25px;
+    height: 25px;
+    background: violet;
+    border:1px solid blueviolet;
+    margin:4px;
+    border-radius: 5px;
+}
